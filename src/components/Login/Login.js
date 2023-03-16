@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GrFacebook } from "react-icons/gr";
 import { FcGoogle } from "react-icons/fc";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import "./Login.css";
 
 const Login = () => {
+  const [isOpen, setIsOpen] = useState(true);
+  const passwordType = isOpen ? "password" : "text";
+  const eyeChangeHandler = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="login">
       <form>
@@ -20,11 +26,14 @@ const Login = () => {
           <input type="email" id="form2Example1" className="form-control" />
         </div>
         {/* Password input */}
-        <div className="form-outline mb-4">
-          <label className="form-label" htmlFor="form2Example2">
+        <div className="form-outline mb-4 icon-div">
+          <label className="form-label" htmlFor="password">
             Password
           </label>
-          <input type="password" id="form2Example2" className="form-control" />
+          <input type={passwordType} id="password" className="form-control" />
+          <span className="icon" onClick={eyeChangeHandler}>
+            {isOpen ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </span>
         </div>
         {/* 2 column grid layout for inline styling */}
         <div className="row mb-4">
