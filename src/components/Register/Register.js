@@ -96,7 +96,7 @@ const Register = () => {
           {/* Register buttons */}
           <div className="text-center">
             <p>
-              Don't have an Account <Link to={"/login"}>Login</Link>
+              Already have an account? <Link to={"/login"}>Login</Link>
             </p>
           </div>
         </form>
